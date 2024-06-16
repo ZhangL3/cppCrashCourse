@@ -19,6 +19,7 @@ int main() {
   const auto point_size = sizeof(Point);
   std::byte data[3 * point_size];
   printf("Data starts at %p.\n", data);
+  // `new(...) Point{}`: This is the placement new operator. It constructs a [`Point`]
   auto point1 = new(&data[0 * point_size]) Point{};
   auto point2 = new(&data[1 * point_size]) Point{};
   auto point3 = new(&data[2 * point_size]) Point{};

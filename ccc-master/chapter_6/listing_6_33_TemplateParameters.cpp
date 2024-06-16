@@ -33,4 +33,8 @@ int main() {
   get<3>(fib) = get<1>(fib) + get<2>(fib);
   printf("%d", get<3>(fib));
   // printf("%d", get<4>(fib));
+  printf("\n");
+  printf("%d\n", get<0, int, 4>(fib));
+
+
 }
