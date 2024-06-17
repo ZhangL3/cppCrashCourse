@@ -3,6 +3,7 @@
 #include <new>
 
 struct Bucket {
+  // One Bucket can hold 4096 bytes of data
   const static size_t data_size{ 4096 };
   std::byte data[data_size];
 };
@@ -23,6 +24,9 @@ struct Heap {
   void free(void* p) {
     for(size_t i{}; i < n_heap_buckets; i++) {
       if(buckets[i].data == p) {
+        // 这里只是简单的将 bucket_used 置为 false，没有释放内存
+        // 内存一直被 bucket 占用，直到程序结束
+        // 但被标记成 false 的bucket可以被再次使用
         bucket_used[i] = false;
         return;
       }
@@ -53,6 +57,7 @@ int main() {
   delete dinner;
   try {
     while(true) {
+      // new 被重写了，所以这里的 new 是分配 char 类型到一个 bucket 中
       new char;
       printf("Allocated a char.\n");
     }
