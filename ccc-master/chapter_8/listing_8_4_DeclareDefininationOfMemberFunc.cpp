@@ -2,6 +2,21 @@
 #include <cstdio>
 
 struct RandomNumberGenerator {
+  /**
+   * When a constructor is declared as explicit,
+   * it means that the compiler will not use that constructor
+   * for implicit conversions 隐式转换 or copy-initializations.
+   * It can only be used for direct initialization.
+   *class MyClass {
+    public:
+        explicit MyClass(int x) {
+            // Constructor implementation
+        }
+    };
+
+    MyClass obj1 = 10; // Error: constructor is explicit
+    MyClass obj2(10);  // OK: direct initialization
+  */
   explicit RandomNumberGenerator(uint32_t seed)
       : iterations{}
       , number{ seed } {}

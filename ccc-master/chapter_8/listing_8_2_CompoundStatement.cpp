@@ -17,7 +17,7 @@ int main() {
     printf("Block a\n");
     Tracer a1{ "a1" };
     Tracer a2{ "a2" };
-  }
+  } // a2 和 a1 被销毁，在 stack 中，先进后出
   {
     printf("Block b\n");
     Tracer b1{ "b1" };
