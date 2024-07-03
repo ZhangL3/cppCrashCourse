@@ -13,6 +13,7 @@ bool is_more_mauvey(const JoopleberryShrub& shrub) {
 }
 } // namespace BroopKidron13::Shaltanac
 
+// From here, we can use the namespace and its symbols without qualification.
 using namespace BroopKidron13::Shaltanac;
 int main() {
   const JoopleberryShrub yours{ "The other Shaltanac", Color::Mauve };
