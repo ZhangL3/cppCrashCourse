@@ -25,7 +25,8 @@ int main() {
   try {
     level_ptr = nullptr;
     value_of(level_ptr);
-  } catch(const std::exception& e) {
+  }
+  catch(const std::exception& e) {
     printf("Exception: %s\n", e.what());
   }
 }

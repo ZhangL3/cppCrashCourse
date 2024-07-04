@@ -1,6 +1,9 @@
 #include <cstdio>
 
 template <typename T>
+// The return type is const char*,
+// meaning that the function returns a pointer to a string,
+// The string itself cannot be modified through this pointer.
 constexpr const char* sign(const T& x) {
   const char* result{};
   if(x == 0) {

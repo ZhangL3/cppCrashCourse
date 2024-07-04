@@ -13,10 +13,13 @@ struct NarrowCaster {
 };
 
 template <typename From>
+// Use alias to fix the first parameter to short (the target type).
+// Only the second parameter is a template parameter.
 using short_caster = NarrowCaster<short, From>;
 
 int main() {
   try {
+    // Fill in the template parameter with int.
     const short_caster<int> caster;
     const auto cyclic_short = caster.cast(142857);
     printf("cyclic_short: %d\n", cyclic_short);
