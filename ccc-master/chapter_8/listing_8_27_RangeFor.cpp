@@ -1,6 +1,8 @@
 #include <cstdio>
 
 struct FibonacciIterator {
+  // The const keyword at the end of the function declaration means that
+  // this function does not modify any member variables of the class.
   bool operator!=(int x) const {
     return x >= current;
   }
@@ -35,6 +37,12 @@ struct FibonacciRange {
 };
 
 int main() {
+/**
+ * const auto e = range.end();
+ * for(auto i = range.begin(); i != e; ++i) {
+ *    const auto& element = *i;
+ * }
+*/
   for(const auto i : FibonacciRange{ 5000 }) {
     printf("%d ", i);
   }

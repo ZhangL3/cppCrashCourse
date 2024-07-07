@@ -1,6 +1,7 @@
 #include <cstdint>
 #include <cstdio>
 
+// The parameter is passed by reference so that the function can modify it.
 bool double_return_overflow(uint8_t& x) {
   const auto original = x;
   x *= 2;
