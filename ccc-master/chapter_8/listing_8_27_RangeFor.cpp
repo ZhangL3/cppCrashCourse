@@ -1,5 +1,6 @@
 #include <cstdio>
 
+// 迭代器
 struct FibonacciIterator {
   // The const keyword at the end of the function declaration means that
   // this function does not modify any member variables of the class.
@@ -18,14 +19,22 @@ struct FibonacciIterator {
     return current;
   }
 
-  private:
+  // To access the current value from the interpreter of the range for, it can not be private.
+  // private:
   int current{ 1 }, last{ 1 };
 };
 
 struct FibonacciRange {
   explicit FibonacciRange(int max)
       : max{ max } {}
-  FibonacciIterator begin() const {
+  /**
+   * 每个范围都公开一个begin和end方法。
+   * 这些函数是公共接口，
+   * 基于范围的for循环使用该公共接口与范围进行交互。
+   * 两个方法都返回迭代器。
+   * 迭代器是支持operator!=、operator++和operator*的对象
+  */
+    FibonacciIterator begin() const {
     return FibonacciIterator{};
   }
   int end() const {
@@ -37,13 +46,17 @@ struct FibonacciRange {
 };
 
 int main() {
-/**
- * const auto e = range.end();
- * for(auto i = range.begin(); i != e; ++i) {
- *    const auto& element = *i;
- * }
-*/
+
   for(const auto i : FibonacciRange{ 5000 }) {
     printf("%d ", i);
   }
+
+  // Interpreter of range for
+  FibonacciRange range{ 3000 };
+  const auto e = range.end();
+  for(auto i = range.begin(); i != e; ++i) {
+    printf("%d ", i.current);
+    printf("\n");
+  }
+
 }
