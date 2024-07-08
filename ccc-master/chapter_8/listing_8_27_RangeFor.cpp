@@ -50,13 +50,15 @@ int main() {
   for(const auto i : FibonacciRange{ 5000 }) {
     printf("%d ", i);
   }
+  printf("\n");
 
   // Interpreter of range for
   FibonacciRange range{ 3000 };
   const auto e = range.end();
   for(auto i = range.begin(); i != e; ++i) {
-    printf("%d ", i.current);
-    printf("\n");
+    // *i returns the current value of the iterator.
+    printf("%d ", *i);
   }
+  printf("\n");
 
 }

@@ -2,12 +2,12 @@
 
 struct BostonCorbett {
   virtual void shoot() final {
-    printf("What a God we have...God avenged Abraham Lincoln");
+    printf("What a God we have...God avenged Abraham Lincoln\n");
   }
 };
 
 struct BostonCorbettJunior : BostonCorbett {
-  //void shoot() override {} // Bang! shoot is final.
+  void shoot() override {} // Bang! shoot is final.
 };
 
 int main() {
