@@ -12,6 +12,8 @@ int main() {
   const float first{ 100 };
   const int second{ 20 };
 
+  // operation is the name of a pointer to a function that takes a float and an int
+  // call the function using operation(first, second)
   float (*operation)(float, int){};
   printf("operation initialized to 0x%p\n", operation);
 

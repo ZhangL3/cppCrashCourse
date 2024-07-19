@@ -5,6 +5,8 @@ constexpr T sum(T x) {
   return x;
 }
 
+// while the Args in typename... Args can technically be any types,
+// the actual types you can use depend on how you use Args in your function.
 template <typename T, typename... Args>
 /**
  * The function adds the value of x to the result
